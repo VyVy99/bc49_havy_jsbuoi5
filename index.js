@@ -48,8 +48,7 @@ document.getElementById('btnBai1').onclick = function () {
   }
 
   // Hiển thị kết quả lên trang web
-  var ketQuaB1 = document.getElementById("ketQuaB1");
-  ketQuaB1.innerHTML = "Tổng điểm: " + diemTongKet + "<br>Kết quả: " + ketQua;
+ document.getElementById("ketQuaB1").innerHTML = "Tổng điểm: " + diemTongKet + "<br>Kết quả: " + ketQua;
 };
 // bài 2
 /**
@@ -92,7 +91,7 @@ document.getElementById('btnBai3').onclick = function () {
   let soNguoiPhuThuoc = parseInt(document.getElementById('soNguoiPhuThuoc').value);
 
   // Tính thu nhập chịu thuế
-  let thuNhapChiuThue = tongThuNhap - 4000000 - (soNguoiPhuThuoc * 1600000);
+  let thuNhapChiuThue = tongThuNhap - 4e+6 - (soNguoiPhuThuoc * 16e+5);
 
   // Tính thuế thu nhập cá nhân dựa trên mức thuế suất
   let thue = 0;
@@ -109,12 +108,10 @@ document.getElementById('btnBai3').onclick = function () {
       thue =thuNhapChiuThue  * 0.25;
     } else if (thuNhapChiuThue <= 96e+7 && thuNhapChiuThue >624e+6) {
       thue =thuNhapChiuThue * 0.3;
-    } 
-    else {
+    }else {
       thue = thuNhapChiuThue  * 0.35;
     }
   }
-  console.log(thue);
 
   // Hiển thị kết quả
   let ketQua = document.getElementById('ketQuaB3');
@@ -134,15 +131,18 @@ document.getElementById('loaiKhachHang').addEventListener('change', function () 
     inputSoKetNoi.disabled = false;
   }
 });
+
 document.getElementById('btnBai4').onclick = function () {
   var maKhachHang = document.getElementById('maKhachHang').value * 1;
   var soKenhCaoCap = document.getElementById('soKenhCaoCap').value * 1;
   var loaiKhachHang = document.getElementById('loaiKhachHang').value;
   var soKetNoi = 0;
+
   if (loaiKhachHang == 'Doanh nghiệp') {
     soKetNoi = document.getElementById('soKetNoi').value * 1;
   }
   var phiXuLyHoaDon, phiDichVuCoBan, phiThueKenh, tongTien;
+
   if (loaiKhachHang == 'Nhà dân') {
     phiXuLyHoaDon = 4.5;
     phiDichVuCoBan = 20.5;
